@@ -48,6 +48,6 @@ This file sets the options for the default Neovim setup that requires no plugins
 
 ## Useful Motions To Get Started
 
-<leader>pv - This motion will return you from a file buffer to the netrw buffer
-<leader>sf - This motion will pull up the telescope plugin search files buffer
-<leader>sk - This motion will pull up the telescope plugin search keymaps biffer
+- <leader>pv - This motion will return you from a file buffer to the netrw buffer
+- <leader>sf - This motion will pull up the telescope plugin search files buffer
+- <leader>sk - This motion will pull up the telescope plugin search keymaps biffer
