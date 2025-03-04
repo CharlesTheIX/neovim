@@ -16,13 +16,13 @@ The Neovim config has only been confirmed on macOS and not Linux or Windows.
 
 ## File Structure
 
-./ReadMe.md  -- This file
-./init.lua   -- The root lua file that imports the desired version of the Neovim setup: mac | windows
-./lua        -- The source directory of the project containing the version directories and the plugins directory containing the plugins used in this setup
-    /linux   -- Contains the files for a Linux setup 
-    /mac     -- Contains the files for a macOS setup
-    /plugins -- Contains the Lazy plugin setups for the plugins used in this Neovim setup
-    /windows -- Contains the files for a Windows setup
+- ./ReadMe.md  -- This file
+- ./init.lua   -- The root lua file that imports the desired version of the Neovim setup: mac | windows
+- ./lua        -- The source directory of the project containing the version directories and the plugins directory containing the plugins used in this setup
+  - /linux   -- Contains the files for a Linux setup 
+  - /mac     -- Contains the files for a macOS setup
+  - /plugins -- Contains the Lazy plugin setups for the plugins used in this Neovim setup
+  - /windows -- Contains the files for a Windows setup
 
 
 ## Package Manager - Lazy
@@ -48,6 +48,6 @@ This file sets the options for the default Neovim setup that requires no plugins
 
 ## Useful Motions To Get Started
 
-- <leader>pv - This motion will return you from a file buffer to the netrw buffer
-- <leader>sf - This motion will pull up the telescope plugin search files buffer
-- <leader>sk - This motion will pull up the telescope plugin search keymaps biffer
+- \<leader>pv - This motion will return you from a file buffer to the netrw buffer
+- \<leader>sf - This motion will pull up the telescope plugin search files buffer
+- \<leader>sk - This motion will pull up the telescope plugin search keymaps biffer
