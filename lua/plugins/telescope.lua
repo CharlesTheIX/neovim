@@ -2,10 +2,12 @@ return {
   {
     'nvim-telescope/telescope.nvim',
     enabled = true,
-    event = 'VimEnter',
     branch = '0.1.x',
+    event = 'VimEnter',
     dependencies = {
       'nvim-lua/plenary.nvim',
+      { 'nvim-telescope/telescope-ui-select.nvim' },
+      { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
       {
         'nvim-telescope/telescope-fzf-native.nvim',
         build = 'make',
@@ -13,8 +15,6 @@ return {
           return vim.fn.executable 'make' == 1
         end,
       },
-      { 'nvim-telescope/telescope-ui-select.nvim' },
-      { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
     },
     config = function()
       require('telescope').setup({

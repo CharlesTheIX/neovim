@@ -4,6 +4,7 @@ return {
   build = ":TSUpdate",
   config = function()
     require("nvim-treesitter.configs").setup({
+      auto_install = true,
       ensure_installed = {
         "angular",
         "bash",
@@ -24,7 +25,6 @@ return {
         "yaml",
         "zig"
       },
-      auto_install = true,
       highlight = {
         enable = true,
         additional_vim_regex_highlighting = false,
