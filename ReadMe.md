@@ -1,6 +1,6 @@
 # NEOVIM SETUP
 
-This document contains the information required to setting up a Neovim configeration.
+This document contains the information required to setting up a Neovim configuration.
 
 ## Requirements
 
@@ -16,7 +16,7 @@ The Neovim config has only been confirmed on macOS and not Linux or Windows.
 
 ## File Structure
 
-- ./ReadMe.md  -- This file
+- ./Read_Me.md  -- This file
 - ./init.lua   -- The root lua file that imports the desired version of the Neovim setup: mac | windows
 - ./lua        -- The source directory of the project containing the version directories and the plugins directory containing the plugins used in this setup
   - /linux   -- Contains the files for a Linux setup 

@@ -21,5 +21,5 @@ vim.opt.splitright = true
 vim.opt.termguicolors = false
 
 -- Spell checker
--- vim.opt.spell = true
--- vim.opt.spelllang = "en_gb"
+vim.opt.spell = true
+vim.opt.spelllang = "en_gb"

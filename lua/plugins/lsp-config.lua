@@ -13,7 +13,7 @@ return {
   },
   {
     'neovim/nvim-lspconfig',
-    --dependancies = {
+    --dependencies = {
     --  'saghen/blink.cmp'
     --},
     config = function()

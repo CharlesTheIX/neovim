@@ -4,6 +4,6 @@ return {
 --    ---@module 'oil'
 --    ---@type oil.SetupOts
 --    opts = {},
---    dependancies = { { "echasnovski/mini.incons", opts = {} } },
+--    dependencies = { { "echasnovski/mini.icons", opts = {} } },
 --  }
 }
