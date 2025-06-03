@@ -4,6 +4,7 @@ vim.g.have_nerd_font = true -- Enable the Nerd font to be used
 vim.cmd("let g:netrw_liststyle = 3") -- Sets the netrw list layout to preset 3
 
 -- Remaps
+vim .keymap.set("n", "<leader>q", "vepvby", { desc = 'Pastes the buffer over the word and then reyanks the word to keep the same buffer stored' })
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex, { desc = 'Return to [p]roject [v]iew from buffer' })
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = 'Scroll down half a page' })
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = 'Scroll up half a page' })
@@ -21,4 +22,8 @@ vim.keymap.set("n", "[s", "[s", { desc = "Previous misspelled word" })
 vim.keymap.set("n", "z=", "z=", { desc = "Suggest spelling corrections" })
 vim.keymap.set("n", "zg", "zg", { desc = "Add word to dictionary" })
 vim.keymap.set("n", "zw", "zw", { desc = "Mark word as incorrect" })
-
+vim.keymap.set("n", "za", "za", { desc = "Toggle code collapse under the cursor" });
+vim.keymap.set("n", "zc", "zc", { desc = "Collapse the code under the cursor" });
+vim.keymap.set("n", "zo", "zo", { desc = "Open the code unser the cursor" });
+vim.keymap.set("n", "zM", "zM", { desc = "Close all code blocks in the buffer" });
+vim.keymap.set("n", "zR", "zR", { desc = "Open all the code blocks in the buffer" });

@@ -23,3 +23,8 @@ vim.opt.termguicolors = false
 -- Spell checker
 vim.opt.spell = true
 vim.opt.spelllang = "en_gb"
+
+-- Collapse and Expand Code Blocks
+vim.opt.foldmethod = "indent"
+vim.opt.foldenable = true
+vim.opt.foldlevel = 99
