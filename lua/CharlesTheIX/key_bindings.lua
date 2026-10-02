@@ -1,7 +1,7 @@
-vim.g.mapleader = " " -- Sets the leader character for custom maps and motions
-vim.g.maplocalleader = " " -- Sets the local leader character for custom maps and motions
-vim.g.have_nerd_font = true -- Enable the Nerd font to be used
-vim.cmd("let g:netrw_liststyle = 3") -- Sets the netrw list layout to preset 3
+-- Command Aliases
+vim.api.nvim_create_user_command("Q", "q<bang>", { bang = true, desc = 'Alias for :q[!]' })
+vim.api.nvim_create_user_command("W", "w<bang>", { bang = true, desc = 'Alias for :w[!]' })
+vim.api.nvim_create_user_command("WQ", "wq<bang>", { bang = true, desc = 'Alias for :wq[!]' })
 
 -- Leader Remaps
 vim.keymap.set("n", "<leader>w", "<C-w>", { desc = 'Enter window mode' })
