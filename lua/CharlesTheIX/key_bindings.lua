@@ -1,6 +1,9 @@
+-- Central home for built-in and plugin keymaps. Plugin mappings live here so
+-- they are easy to discover; their specs keep plugins lazy-loaded on use.
+
 -- Command Aliases
-vim.api.nvim_create_user_command("Q" , "q<bang>" ,   { bang = true, desc = 'Alias for :q[!]'  })
-vim.api.nvim_create_user_command("W" , "w<bang>" ,   { bang = true, desc = 'Alias for :w[!]'  })
+vim.api.nvim_create_user_command("Q" , "q<bang>" , { bang = true, desc = 'Alias for :q[!]'  })
+vim.api.nvim_create_user_command("W" , "w<bang>" , { bang = true, desc = 'Alias for :w[!]'  })
 vim.api.nvim_create_user_command("WQ", "wq<bang>", { bang = true, desc = 'Alias for :wq[!]' })
 
 -- Leader Remaps
@@ -33,3 +36,56 @@ vim.keymap.set("n", "zc", "zc", { desc = "Collapse the code under the cursor"   
 vim.keymap.set("n", "zo", "zo", { desc = "Open the code unser the cursor"         })
 vim.keymap.set("n", "zM", "zM", { desc = "Close all code blocks in the buffer"    })
 vim.keymap.set("n", "zR", "zR", { desc = "Open all the code blocks in the buffer" })
+
+-- Harpoon: add the current file, open the project list, and jump to a mark.
+vim.keymap.set("n", "<leader>ha", function()
+  require("harpoon"):list():add()
+end, { desc = "[H]arpoon [A]dd file" })
+
+vim.keymap.set("n", "<leader>hf", function()
+  local harpoon = require("harpoon")
+  harpoon.ui:toggle_quick_menu(harpoon:list())
+end, { desc = "[H]arpoon [F]ile menu" })
+
+for index = 1, 9 do
+  local slot = index
+  vim.keymap.set("n", "<leader>h" .. slot, function()
+    require("harpoon"):list():select(slot)
+  end, { desc = "Harpoon file " .. slot })
+end
+
+-- Telescope: search files, text, buffers, help, mappings, and recent files.
+vim.keymap.set("n", "<leader>sf", "<cmd>Telescope find_files<cr>" , { desc = "[S]earch [F]iles"        })
+vim.keymap.set("n", "<leader>sg", "<cmd>Telescope live_grep<cr>"  , { desc = "[S]earch by [G]rep"      })
+vim.keymap.set("n", "<leader>sw", "<cmd>Telescope grep_string<cr>", { desc = "[S]earch current [W]ord" })
+vim.keymap.set("n", "<leader>sb", "<cmd>Telescope buffers<cr>"    , { desc = "[S]earch [B]uffers"      })
+vim.keymap.set("n", "<leader>sh", "<cmd>Telescope help_tags<cr>"  , { desc = "[S]earch [H]elp"         })
+vim.keymap.set("n", "<leader>sk", "<cmd>Telescope keymaps<cr>"    , { desc = "[S]earch [K]eymaps"      })
+vim.keymap.set("n", "<leader>s.", "<cmd>Telescope oldfiles<cr>"   , { desc = "[S]earch recent files"   })
+
+-- Copilot Chat: toggle the chat panel from normal or visual mode.
+vim.keymap.set({ "n", "x" }, "<leader>ac", "<cmd>CopilotChatToggle<cr>", {
+  desc = "[A]I [C]hat toggle",
+})
+
+-- Copilot inline suggestions: accept, cycle suggestions, or dismiss ghost text.
+vim.keymap.set("i", "<M-l>", function()
+  require("copilot.suggestion").accept()
+end, { desc = "Accept Copilot suggestion" })
+
+vim.keymap.set("i", "<M-]>", function()
+  require("copilot.suggestion").next()
+end, { desc = "Next Copilot suggestion" })
+
+vim.keymap.set("i", "<M-[>", function()
+  require("copilot.suggestion").prev()
+end, { desc = "Previous Copilot suggestion" })
+
+vim.keymap.set("i", "<C-]>", function()
+  require("copilot.suggestion").dismiss()
+end, { desc = "Dismiss Copilot suggestion" })
+
+-- Start GitHub Copilot's interactive sign-in flow when needed.
+vim.keymap.set("n", "<leader>pa", "<cmd>Copilot auth<cr>", {
+  desc = "[P]ilot [A]uthenticate",
+})
