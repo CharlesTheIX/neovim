@@ -29,7 +29,7 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = 'Move the selected lines u
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = 'Move the selected lines down' })
 
 -- Spelling
-vim.keymap.set("n", "]s", "]s", { desc = "Next misspelled word"                   }) 
+vim.keymap.set("n", "]s", "]s", { desc = "Next misspelled word"                   })
 vim.keymap.set("n", "[s", "[s", { desc = "Previous misspelled word"               })
 vim.keymap.set("n", "z=", "z=", { desc = "Suggest spelling corrections"           })
 vim.keymap.set("n", "zg", "zg", { desc = "Add word to dictionary"                 })

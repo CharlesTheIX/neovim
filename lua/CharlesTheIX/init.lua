@@ -2,7 +2,6 @@
 -- and the centralized keymaps.
 
 print("Hello from CharlesTheIX!")
-print
 
 -- General Neovim settings for CharlesTheIX configuration
 vim.g.mapleader = " " -- Sets the leader character for custom maps and motions
