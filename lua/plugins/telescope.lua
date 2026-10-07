@@ -16,7 +16,7 @@ return {
         end,
       },
     },
-    config = function()
+    config = function() 
       require('telescope').setup({
         extensions = {
           ['ui-select'] = {

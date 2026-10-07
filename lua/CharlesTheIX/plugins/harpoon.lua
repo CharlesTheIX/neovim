@@ -1,7 +1,8 @@
--- Harpoon 2 keeps project-local lists of frequently used files. Use
--- <leader>ha to mark the current file, <leader>hf to open the list, and
--- <leader>h1 through <leader>h9 to jump to marks; all mappings are in
--- CharlesTheIX.key_bindings.
+-- Harpoon 2 keeps persistent lists of frequently used files, scoped to
+-- Neovim's current working directory. Plenary is its required Lua utility
+-- dependency. Lists are saved whenever the menu closes; use <leader>ha to add
+-- a file, <leader>hf to open the menu, and <leader>h1 through <leader>h9 to
+-- jump to entries. All mappings live in CharlesTheIX.key_bindings.
 
 return {
   {

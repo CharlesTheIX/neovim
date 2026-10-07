@@ -41,6 +41,94 @@ The plugin loads when one of its picker commands is used.
 | `Space s k` | Search keymaps |
 | `Space s .` | Open a recent file |
 
+## Statusline
+
+[lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) replaces the
+built-in statusline with one global bar shared by all splits. It uses the Rose
+Pine theme and shows:
+
+- the current mode;
+- Git branch and added, modified, or removed line counts;
+- error, warning, information, and hint diagnostic counts;
+- the current file's path and modified/read-only state;
+- language servers attached to the current buffer;
+- character encoding, line-ending format, and filetype;
+- progress through the file and the cursor's line and column.
+
+[nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons) supplies
+filetype icons. The configured JetBrainsMono Nerd Font is therefore expected to
+be available in the UI running Neovim. lualine loads after startup and requires
+no mappings or external executables.
+
+## Language servers (LSP)
+
+Language intelligence is provided by Neovim's built-in LSP client together with
+[nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) for server
+definitions, [mason.nvim](https://github.com/mason-org/mason.nvim) for
+installing servers, and
+[mason-lspconfig.nvim](https://github.com/mason-org/mason-lspconfig.nvim) to
+enable each installed server. The spec lives in
+[lua/CharlesTheIX/plugins/lsp.lua](lua/CharlesTheIX/plugins/lsp.lua) and loads
+when a file is opened.
+
+### Requirements and setup
+
+- Neovim 0.11 or newer.
+- Mason installs these servers automatically on first start: `bashls`, `cssls`,
+  `html`, `jsonls`, `lua_ls`, `ts_ls` and `vimls`. Watch `:Mason` for progress
+  and `:checkhealth mason` for missing prerequisites such as Node.js.
+- **Zig is deliberately excluded from Mason.** `zls` must match the Zig compiler
+  it analyses, so the configuration uses the `zls` found on your `PATH`
+  (for example `brew install zls` next to your `zig` install) and ignores any
+  copy inside Mason's `bin` directory. If no suitable `zls` is found, a warning
+  is shown on startup and Zig support stays off.
+- Use `:LspInfo` to see the clients attached to the current buffer, and
+  `:LspInstall` to add a server for the current filetype.
+
+### Keys (normal mode unless noted)
+
+`K` (hover), `grn` (rename), `gra` (code action), `gO` (document symbols) and
+`[d` / `]d` (previous/next diagnostic) are Neovim's own defaults. The
+configuration adds the following buffer-local maps when a server attaches:
+
+| Key | Action |
+| --- | --- |
+| `g d` | Go to definition (Telescope picker) |
+| `g D` | Go to declaration |
+| `g r r` | List references (Telescope picker) |
+| `g r i` | List implementations (Telescope picker) |
+| `g r t` | List type definitions (Telescope picker) |
+| `Space c r` | Rename the symbol under the cursor |
+| `Space c a` (normal or visual mode) | Code action |
+| `Space c d` | Show the diagnostic under the cursor in a float |
+| `Space c l` | List diagnostics (Telescope picker) |
+| `Space c s` | Document symbols (Telescope picker) |
+| `Space c w` | Workspace symbols (Telescope picker) |
+| `Space c f` | Format the buffer with the language server |
+
+`Space c f` asks the attached language server to format, which is distinct from
+the existing `Space =`, which re-indents the file using Vim's own rules.
+
+## Completion
+
+[blink.cmp](https://github.com/Saghen/blink.cmp) provides the completion popup,
+fed by LSP, snippets ([friendly-snippets](https://github.com/rafamadriz/friendly-snippets)),
+buffer words and paths, plus signature help. It is intentionally not
+lazy-loaded by an event because it registers the LSP client capabilities that
+servers need at startup. A prebuilt fuzzy-matching library is downloaded on
+first install; no Rust toolchain is required.
+
+| Key (insert mode) | Action |
+| --- | --- |
+| `Ctrl-Space` | Open the completion menu |
+| `Ctrl-N` / `Ctrl-P` | Select the next/previous item |
+| `Ctrl-Y` | Accept the selected item |
+| `Ctrl-E` | Close the menu |
+| `Tab` / `Shift-Tab` | Jump forward/backward in an expanded snippet |
+
+These keys do not clash with Copilot's inline suggestions: `Ctrl-Y` accepts an
+item from the popup, while `Ctrl-L` accepts Copilot's ghost text.
+
 ## GitHub Copilot Chat
 
 [CopilotChat.nvim](https://github.com/CopilotC-Nvim/CopilotChat.nvim) provides a

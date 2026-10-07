@@ -1,6 +1,8 @@
--- Rose Pine is the active color scheme. This spec selects it during startup;
--- change palettes with :colorscheme rose-pine-main, rose-pine-moon, or
--- rose-pine-dawn.
+-- Rose Pine is the active colorscheme and loads before other visual plugins so
+-- they can inherit its highlights. The dark "main" palette is selected unless
+-- Neovim's background requests the light variant, and transparent backgrounds
+-- let the terminal supply the final backdrop. Change palettes at runtime with
+-- :colorscheme rose-pine-main, rose-pine-moon, or rose-pine-dawn.
 
 return {
   {

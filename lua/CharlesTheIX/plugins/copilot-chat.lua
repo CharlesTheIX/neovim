@@ -1,7 +1,8 @@
--- CopilotChat.nvim adds an interactive GitHub Copilot chat panel. Use
--- <leader>ac to toggle it, or its CopilotChat commands; select code first
--- to include a visual selection as context. Prompt submission keys are in
--- the chat buffer (Ctrl-S in Insert mode or Enter in Normal mode).
+-- CopilotChat.nvim adds an on-demand GitHub Copilot conversation in a vertical
+-- panel occupying 40% of the editor. Plenary is its required Lua utility
+-- dependency. Use <leader>ac or a CopilotChat command to load it; a visual
+-- selection becomes prompt context. The chat buffer owns its submission keys:
+-- Ctrl-S in Insert mode and Enter in Normal mode.
 
 return {
   {

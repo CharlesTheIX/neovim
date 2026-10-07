@@ -1,6 +1,7 @@
--- Telescope provides fuzzy pickers for files, text, buffers, help, and more.
--- Use <leader>sf/sg/sw/sb/sh/sk/s. for common pickers; mappings are
--- centralized in CharlesTheIX.key_bindings.
+-- Telescope provides fuzzy pickers for files, project text, buffers, help,
+-- mappings, LSP results, and diagnostics. Plenary supplies its required Lua
+-- utilities. The :Telescope command and mappings in CharlesTheIX.key_bindings
+-- load it on demand; live grep additionally requires ripgrep on PATH.
 
 return {
   {

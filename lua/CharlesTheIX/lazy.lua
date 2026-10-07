@@ -1,5 +1,11 @@
--- Bootstrap lazy.nvim if needed, add it to runtimepath, and load plugin specs
--- from CharlesTheIX.plugins.
+-- Bootstrap lazy.nvim into Neovim's data directory when it is missing, add it
+-- to the runtime path, and import every plugin spec under
+-- lua/CharlesTheIX/plugins/. A first run therefore requires Git and network
+-- access; later starts use the checked-out plugin manager and lazy-lock.json.
+--
+-- Plugin behavior belongs in individual spec files. Keeping this module
+-- limited to plugin-manager setup makes the active import chain explicit and
+-- prevents the historical lua/plugins/ directory from being loaded.
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 

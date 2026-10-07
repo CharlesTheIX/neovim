@@ -1,5 +1,7 @@
--- copilot.lua provides GitHub Copilot inline ghost-text suggestions while
--- typing. Suggestions appear automatically; accept, cycle, and dismiss keys
+-- copilot.lua provides GitHub Copilot inline ghost-text suggestions and loads
+-- on the first Insert-mode entry or :Copilot command. The panel is disabled so
+-- suggestions stay inline, while every plugin-default key is disabled to avoid
+-- conflicts with blink.cmp. Accept, cycle, dismiss, and authentication mappings
 -- are defined centrally in CharlesTheIX.key_bindings.
 
 return {
